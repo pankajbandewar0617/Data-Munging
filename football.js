@@ -12,10 +12,10 @@ class Football extends Data {
 
 let football = new Football(path, teamColumn, goalForTeamColumn, goalAgainstTeamColumn); 
 football.readValue().then(data => {
-    const value = football.newData(data);
-    const value1 = football.minimumDifference(value);
-    const team = value[value1[0]]['index']
-    const min = value1[1]
+    const dataset = football.newData(data);
+    const differenceOfEachTeam = football.minimumDifference(dataset);
+    const team = dataset[differenceOfEachTeam[0]]['index']
+    const min = differenceOfEachTeam[1]
 
     console.log(`${team} team has smallest difference of for and against goal is ${min}`);
 }).catch(error => {
